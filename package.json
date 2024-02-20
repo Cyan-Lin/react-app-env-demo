@@ -1,19 +1,25 @@
 {
-  "name": "test-react-app",
+  "name": "react-app-env-demo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "env-cmd": "^10.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "dev": "react-scripts start",
+    "uat": "env-cmd -f .env.uat react-scripts start",
+    "prod": "env-cmd -f .env.production react-scripts start",
+    "build:dev": "env-cmd -f .env.dev react-scripts build",
+    "build:uat": "env-cmd -f .env.uat react-scripts build",
+    "build": "env-cmd -f .env.production react-scripts build",
+    "preview": "npx serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
